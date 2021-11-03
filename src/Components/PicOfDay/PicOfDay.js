@@ -1,4 +1,5 @@
 import React from "react";
+import './PicOfDay.css';
 import Description from "./Description";
 import Picture from "./Picture";
 
