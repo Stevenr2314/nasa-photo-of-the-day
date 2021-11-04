@@ -9,7 +9,7 @@ let today = new Date().toISOString().slice(0, 10)
 
 function App() {
   const [pod, setPod] = useState({})
-  const [date, setDate]=useState(today)
+  const [date, setDate]=useState('2021-11-03')
 
   useEffect( () => {
     axios.get(`https://api.nasa.gov/planetary/apod?api_key=mwG3rW1ji3NvaOBSUtvkvZqrUKsS5moq1Azj90JI&date=${date}`)
@@ -30,10 +30,6 @@ function App() {
         <FontAwesomeIcon icon={faRocket} className='App-logo'/>
       </div>
       <PicOfDay  imgURL={pod.url} title={pod.title} name={pod.copyright} desc={pod.explanation}/>
-      <p>
-        Read through the instructions in the README.md file to build your NASA
-        app! Have fun <span role="img" aria-label='go!'>🚀</span>!
-      </p>
     </div>
   );
 }
