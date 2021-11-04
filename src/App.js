@@ -9,7 +9,7 @@ let today = new Date().toISOString().slice(0, 10)
 
 function App() {
   const [pod, setPod] = useState({})
-  const [date, setDate]=useState('2021-11-03')
+  const [date, setDate]=useState(today)
 
   useEffect( () => {
     axios.get(`https://api.nasa.gov/planetary/apod?api_key=mwG3rW1ji3NvaOBSUtvkvZqrUKsS5moq1Azj90JI&date=${date}`)
@@ -20,16 +20,12 @@ function App() {
     .catch(err => console.log(err))
   }, [date])
 
-  const randomPic = () => {
-
-  }
-
   return (
     <div className="App">
       <div className='App-header'>
         <FontAwesomeIcon icon={faRocket} className='App-logo'/>
       </div>
-      <PicOfDay  imgURL={pod.url} title={pod.title} name={pod.copyright} desc={pod.explanation}/>
+      <PicOfDay  imgURL={pod.url} title={pod.title} name={pod.copyright} desc={pod.explanation} setDate={setDate}/>
     </div>
   );
 }
